@@ -68,7 +68,7 @@
   color: #fff;
   outline: none;
   border-radius: 5px;
-  border:0px;
+  border: 0px;
   padding: 5px 10px;
 }
 
@@ -77,9 +77,49 @@
   color: #fff;
   outline: none;
   border-radius: 5px;
-  border:0px;
+  border: 0px;
   padding: 5px 10px;
 }
-.m-10{
+
+.search-button:disabled {
+  cursor: not-allowed;
+  background-color: rgba(36, 126, 207, 0.3);
+}
+.m-10 {
   margin: 10px;
+}
+.card-cantainer {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.book-item-card {
+  border: 1px solid #cecece;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 10px 15px;
+  min-width: 20%;
+  max-width: 20%;
+  /* flex-wrap: wrap; */
+  /* flex-direction: column; */
+}
+.text-semibold {
+  font-weight: 400;
+}
+
+.single-line-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+.cover-image {
+  object-fit: contain;
+  max-height: 300px;
+  margin: 5px 0px;
+}
+.border-gray {
+  border: 1px solid gray;
 }
