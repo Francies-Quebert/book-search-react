@@ -123,3 +123,11 @@
 .border-gray {
   border: 1px solid gray;
 }
+
+
+@media only screen and (max-width: 600px) {
+  .book-item-card {
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
