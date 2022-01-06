@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import SearchInput from "./components/SearchInput";
 import { useState } from "react";
@@ -40,7 +39,7 @@ function App() {
                       ...pData,
                       loading: true,
                     }));
-                    alert("Try again later", data);
+                    alert("No Data Found! Try Again Later");
                   } else {
                     setBookData((pData) => ({
                       ...pData,
