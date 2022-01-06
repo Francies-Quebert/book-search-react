@@ -1,3 +1,4 @@
+// fetching data from api
 export const fetchBookData = (name) => {
   return new Promise(async function (resolve, reject) {
     try {
@@ -9,10 +10,7 @@ export const fetchBookData = (name) => {
         })
         .then((actualData) => {
           if (actualData.docs) {
-            return actualData.docs.map((doc) => ({
-              ...doc,
-              cover_image: `https://covers.openlibrary.org/b/id/${doc.cover_i}-M.jpg`,
-            }));
+            return actualData.docs;
           } else {
             throw reject("Error");
           }
