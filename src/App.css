@@ -15,7 +15,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,4 +35,51 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.search-input {
+  border-radius: 10px;
+  outline: none;
+  border: 1px solid #0c0c0c;
+  padding: 5px 15px;
+  margin: 5px 10px;
+  min-width: 250px;
+  max-width: 250px;
+}
+
+.search-input:focus-within {
+  border: 1px solid rgba(36, 126, 207, 0.6);
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.search-button {
+  background-color: rgba(36, 126, 207, 1);
+  color: #fff;
+  outline: none;
+  border-radius: 5px;
+  border:0px;
+  padding: 5px 10px;
+}
+
+.search-button:hover {
+  background-color: rgba(36, 126, 207, 0.6);
+  color: #fff;
+  outline: none;
+  border-radius: 5px;
+  border:0px;
+  padding: 5px 10px;
+}
+.m-10{
+  margin: 10px;
 }
