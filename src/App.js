@@ -1,6 +1,6 @@
 import "./App.css";
 import SearchInput from "./components/SearchInput";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SearchButton from "./components/SearchButton";
 import { fetchBookData } from "./services/bookData";
 import BookItemCard from "./components/BookItemCard";
@@ -13,33 +13,35 @@ function App() {
   const onSearchChange = (book) => {
     setValue(book);
   };
-//on button click function wih fetch and validation
-  const onSearchClick = () => {
+  //on button click function wih fetch and validation
+  const onSearchClick = async () => {
     setBookData((pData) => ({
       ...pData,
       loading: true,
     }));
-    fetchBookData(value)
+    const tempData = await fetchBookData(value)
       .then((data) => {
         if (!data || data.length <= 0) {
-          setBookData((pData) => ({
-            ...pData,
-            loading: true,
-          }));
-          alert("No Data Found! Try Again Later");
+          throw new Error("no data found");
         } else {
-          setBookData((pData) => ({
-            ...pData,
-            data: data,
-            loading: false,
-          }));
+          return data;
         }
       })
       .catch((err) => {
-        alert(err, "Something went wrong! Try again later");
+        setBookData(() => ({
+          data: [],
+          loading: false,
+        }));
+        alert(err + ", Something went wrong! Try again later");
       });
+
+    setBookData((pData) => ({
+      ...pData,
+      data: tempData,
+      loading: false,
+    }));
   };
-// landing page
+  // landing page
   return (
     <div className="App">
       <header className="App-header">Landing Page</header>
@@ -53,7 +55,7 @@ function App() {
           />
         </div>
         <div>
-           {/* search button component */}
+          {/* search button component */}
           <SearchButton
             disabled={value?.length > 0 ? false : true}
             onSearchClick={() => {
@@ -63,7 +65,7 @@ function App() {
         </div>
       </div>
       <div className="m-10 ">
-          {/* book data to be viewed and loading component */}
+        {/* book data to be viewed and loading component */}
         {bookData?.loading ? (
           "loading"
         ) : (
